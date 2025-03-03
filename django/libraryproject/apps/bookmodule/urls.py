@@ -8,5 +8,7 @@ urlpatterns = [
     path('list_books/one_book.html/', views.onebook, name="books.one_book"),
     path('aboutus/', views.aboutus, name="books.aboutus"),
     path('html5/links/', views.links, name="books.links"),
+    path('html5/text/formatting/', views.text, name="books.text"),
+
 ]
 

@@ -33,7 +33,14 @@
     color: blue;
 }
 
-
+/*
 #link1:visited, #link2:visited, #link3:visited {
     color: brown;
+}
+*/
+
+h1 {
+    background-color: rgb(242, 241, 224);
+    color: green;
+    padding: 10px;
 }
