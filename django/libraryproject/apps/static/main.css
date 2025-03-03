@@ -44,3 +44,17 @@ h1 {
     color: green;
     padding: 10px;
 }
+
+#h1-1 {
+    padding: 10px;
+    color: white;
+    background-color: rgb(36, 126, 126);
+}
+
+ol{
+    color: cadetblue;
+}
+
+.lili{
+    color: rgb(60, 96, 104);
+}
