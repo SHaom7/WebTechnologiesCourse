@@ -1,0 +1,39 @@
+.link {
+    padding: 10px 15px;  
+    text-align: center;  
+    display: block;       
+    font-size: 18px;     
+    text-decoration: underline; 
+}
+
+#link1 {
+    background-color: lightgreen;
+    color: red;
+}
+
+#link2 {
+    background-color: gray;
+    color: yellow;
+}
+
+#link3 {
+    background-color: black;
+    color: white;
+}
+
+#link1:hover {
+    color: white;
+}
+
+#link2:hover {
+    color: black;
+}
+
+#link3:hover {
+    color: blue;
+}
+
+
+#link1:visited, #link2:visited, #link3:visited {
+    color: brown;
+}
