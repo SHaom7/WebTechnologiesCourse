@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <h3>Table 1: Table<br>of Fruits and<br>Their Prices</h3>
+    <table>
+        <tr>
+            <th>Fruit</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td>$0.25</td>
+        </tr>
+        <tr>
+            <td>Orange</td>
+            <td>$0.50</td>
+        </tr>
+        <tr>
+            <td>Banana</td>
+            <td>$1.00</td>
+        </tr>
+        <tr>
+            <td>Pineapple</td>
+            <td>$2.00</td>
+        </tr>
+        <tr>
+            <td><b>Total</b></td>
+            <td><b>$3.75</b></td>
+        </tr>
+      </table>
+      <p id='p-table'>Table 2: A more complex sample table</p>
+      <table class='table1'>
+        <tr>
+            <th class='th1' rowspan="2"><img src="{% static 'desert.jpg' %}" width='250px'></th>
+            <th class='th1' colspan="4">Camelied comparison<br>Approximate as of 6/2011 </th>
+                <tr>
+                    <th class='th1'># of humps</th>
+                    <th class='th1'>Indigenous region</th>
+                    <th class='th1'>Spits?</th>
+                    <th class='th1'>Produces wool?</th>
+                </tr>
+        </tr>
+        <tr>
+            <td class='td1'><b>Dromedary</b></td>
+            <td class='td1'>1</td>
+            <td class='td1'>Arabian Peninsula</td>
+            <td class='td1'>Yes</td>
+            <td class='td1'>Yes</td>
+        </tr>
+        <tr>
+            <td class='td1'><b>Camels (bactrian)</b></td>
+            <td class='td1'>2</td>
+            <td class='td1'>Africa/Asia</td>
+            <td class='td1'>Yes</td>
+            <td class='td1'>Yes</td>
+        </tr>
+        <tr>
+            <td class='td1'><b>Llamas</b></td>
+            <td class='td1'>1</td>
+            <td class='td1'>Andes Mountains</td>
+            <td class='td1'>Yes</td>
+            <td class='td1'>Yes</td>
+        </tr>
+      </table>
+</body>
+</html>

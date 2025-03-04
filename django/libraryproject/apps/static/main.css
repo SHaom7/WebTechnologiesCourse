@@ -58,3 +58,28 @@ ol{
 .lili{
     color: rgb(60, 96, 104);
 }
+
+table, th, td {
+    border: 1px solid black;
+  }
+
+table {
+    margin-left: auto; 
+    margin-right: auto;
+  }
+
+h3{
+    text-align: center;
+}
+
+#p-table{
+    text-align: center;
+}
+
+.table1, .th1, .td1 {
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+  }
