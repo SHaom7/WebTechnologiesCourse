@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Book
 
 def index(request):
     return render(request, "bookmodule/index.html")
@@ -50,5 +51,26 @@ def __getBooksList():
     book3 = {'id':43211234, 'title':'The Hundred-Page Machine Learning Book', 'author':'Andriy Burkov'}
     return [book1, book2, book3]
 
+def add_book(request):
+    mybook = Book.objects.create(
+        title='Continuous Delivery',
+        author='J.Humble and D. Farley',
+        price=55.00,
+        edition=1
+    )
+    mybook.save()
+    return render(request, 'add_book.html', {'message': 'Book Added Successfully!'})
 
 
+def simple_query(request):
+    mybooks=Book.objects.filter(title__icontains='and') 
+    return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+
+
+
+def complex_query(request):
+    mybooks=books=Book.objects.filter(author__isnull = False).filter(title__icontains='and').filter(edition__gte = 2).exclude(price__lte = 100)[:10]
+    if len(mybooks)>=1:
+        return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+    else:
+        return render(request, 'bookmodule/index.html')

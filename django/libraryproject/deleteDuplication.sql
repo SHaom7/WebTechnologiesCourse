@@ -1,0 +1,1 @@
+delete from bookmodule_book;

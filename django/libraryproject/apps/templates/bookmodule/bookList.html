@@ -5,7 +5,12 @@
 {% endblock stylesheets %}
  
 {% block content %}
+
 <h2>Search Results</h2>
+{% for obj in books %}
+    ID: {{obj.id}}, Title: {{obj.title}}
+    <hr>
+{% endfor %}
     {% if books %}
         <table border="1">
             <tr>
