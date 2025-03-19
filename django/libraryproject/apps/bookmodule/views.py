@@ -53,13 +53,13 @@ def __getBooksList():
 
 def add_book(request):
     mybook = Book.objects.create(
-        title='Continuous Delivery',
-        author='J.Humble and D. Farley',
+        title='Gaming in 2025',
+        author='QU coc',
         price=55.00,
-        edition=1
+        edition=4
     )
     mybook.save()
-    return render(request, 'add_book.html', {'message': 'Book Added Successfully!'})
+    return render(request, 'bookmodule/add_book.html', {'message': 'Book Added Successfully!'})
 
 
 def simple_query(request):

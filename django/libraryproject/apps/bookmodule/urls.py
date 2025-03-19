@@ -13,7 +13,8 @@ urlpatterns = [
     path('html5/tables/', views.tables, name="books.tables"),
     path('search/', views.search, name="books.search"),
     path('simple/query/', views.simple_query, name="books.simpleQuery"),
-    path('complex/query/', views.complex_query, name="books.complexQuery")
+    path('complex/query/', views.complex_query, name="books.complexQuery"),
+    path('addBook/', views.add_book, name="books.addBook")
 
 ]
 
