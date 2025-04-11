@@ -9,8 +9,8 @@
 <h2>Search Results</h2>
 {% if books %}
 {% for obj in books %}
-ID: {{obj.id}}, Title: {{obj.title}}, Author: {{obj.author}}, Price: {{obj.price}}, Edition: {{obj.edition}}
-<hr>
+    ID: {{obj.id}}, Title: {{obj.title}}, Author: {{obj.author}}, Price: {{obj.price}}, Edition: {{obj.edition}}
+    <hr>
 {% endfor %}
 {% else %}
 <p>No books found matching your search.</p>

@@ -84,3 +84,23 @@ def task1(request):
         return render(request, 'bookmodule/task1.html', {'books': mybooks})
     else:
         return render(request, 'bookmodule/index.html')
+    
+
+def task2(request):
+    books = Book.objects.filter(
+        Q(edition__gt=3) & (Q(title__icontains='co') | Q(author__icontains='co'))
+    )
+    if books.exists():
+        return render(request, 'bookmodule/task2.html', {'books': books})
+    else:
+        return render(request, 'bookmodule/index.html')
+    
+
+def task3(request):
+    books = Book.objects.filter(
+        Q(edition__lte=3) & ~(Q(title__icontains='co') | Q(author__icontains='co'))
+    )
+    if books.exists():
+        return render(request, 'bookmodule/task3.html', {'books': books})
+    else:
+        return render(request, 'bookmodule/index.html')
