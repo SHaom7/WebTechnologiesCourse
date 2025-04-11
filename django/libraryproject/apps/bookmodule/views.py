@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Book
+from django.db.models import Q
+
 
 def index(request):
     return render(request, "bookmodule/index.html")
@@ -72,5 +74,13 @@ def complex_query(request):
     mybooks=books=Book.objects.filter(author__isnull = False).filter(title__icontains='and').filter(edition__gte = 2).exclude(price__lte = 100)[:10]
     if len(mybooks)>=1:
         return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+    else:
+        return render(request, 'bookmodule/index.html')
+    
+
+def task1(request):
+    mybooks = Book.objects.filter(Q(price__lte=80)) 
+    if mybooks.exists():
+        return render(request, 'bookmodule/task1.html', {'books': mybooks})
     else:
         return render(request, 'bookmodule/index.html')
