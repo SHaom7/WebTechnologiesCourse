@@ -104,3 +104,11 @@ def task3(request):
         return render(request, 'bookmodule/task3.html', {'books': books})
     else:
         return render(request, 'bookmodule/index.html')
+    
+
+def task4(request):
+    books = Book.objects.order_by('title')
+    if books.exists():
+        return render(request, 'bookmodule/task4.html', {'books': books})
+    else:
+        return render(request, 'bookmodule/index.html')
