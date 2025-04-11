@@ -117,7 +117,7 @@ def task4(request):
 def task5(request):
     vals = Book.objects.aggregate(
         total_books=Count('id'),
-        total_price=Sum('price').,
+        total_price=Sum('price'),
         average_price=Avg('price'),
         max_price=Max('price'),
         min_price=Min('price'))
