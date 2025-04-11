@@ -1,0 +1,24 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Book List Page {% endblock title %}
+{% block stylesheets %}
+{% endblock stylesheets %}
+ 
+{% block content %}
+
+<h2>Search Results</h2>
+{% if vals %}
+<h3><strong>Total number of all Books:</strong> {{vals.total_books}}</h3>
+<hr>
+<h3><strong>Total price of all Books:</strong> {{vals.total_price}}</h3>
+<hr>
+<h3><strong>Average price of all Books:</strong> {{vals.average_price}}</h3>
+<hr>
+<h3><strong>Maximum price of all Books:</strong> {{vals.max_price}}</h3>
+<hr>
+<h3><strong>Minimum price of all Books:</strong> {{vals.min_price}}</h3>
+<hr>
+{% else %}
+<p>No results found matching your search.</p>
+{% endif %}
+{% endblock content %}
