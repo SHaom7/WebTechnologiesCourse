@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Book
+from apps.usermodule.models import Student, Address
 from django.db.models import Q, Avg, Count, Max, Sum, Min
 
 
@@ -127,9 +128,11 @@ def task5(request):
         return render(request, 'bookmodule/index.html')
     
 
-def task6(request):
-    vals = Book.objects.order_by('title')
-    if vals.exists():
-        return render(request, 'bookmodule/task6.html', {'vals': vals})
-    else:
-        return render(request, 'bookmodule/index.html')
+
+def task7(request):
+    city_stats = Student.objects.values('address__city').annotate(student_count=Count('id')).order_by('-student_count')
+    return render(request, 'usermodule/task7.html', {'city_stats': city_stats})
+
+
+    
+

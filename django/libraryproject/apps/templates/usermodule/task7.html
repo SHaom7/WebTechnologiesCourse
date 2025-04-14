@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Book List Page {% endblock title %}
+{% block stylesheets %}
+{% endblock stylesheets %}
+ 
+{% block content %}
+
+<h2>Number of Students per City</h2>
+<ul>
+  {% for item in city_stats %}
+    <li>{{ item.address__city }}: {{ item.student_count }} students</li>
+  {% endfor %}
+</ul>
+{% endblock content %}
+
