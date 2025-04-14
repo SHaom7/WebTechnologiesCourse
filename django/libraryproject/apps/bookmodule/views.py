@@ -128,9 +128,6 @@ def task5(request):
         return render(request, 'bookmodule/index.html')
     
 
-def task7(request):
-    city_stats = Student.objects.values('address__city').annotate(student_count=Count('id')).order_by('-student_count')
-    return render(request, 'usermodule/task7.html', {'city_stats': city_stats})
 
 def lab9_1(request):
     studentNum = Student2.objects.values('department__name').annotate(student_count = Count('id')).order_by('-student_count')
@@ -141,19 +138,19 @@ def lab9_1(request):
     
 
 
-def lab9_2(request):
-    books = Book.objects.order_by('title')
-    if books.exists():
-        return render(request, 'bookmodule/task4.html', {'books': books})
+def lab9_3(request):
+    studentName = Student2.objects.values('department__name').annotate(student_name = Min('id'))
+    if studentName.exists():
+        return render(request, 'bookmodule/lab9_3.html', {'studentName': studentName})
     else:
         return render(request, 'bookmodule/index.html')
     
 
 
-def lab9_3(request):
+def lab9_2(request):
     books = Book.objects.order_by('title')
     if books.exists():
-        return render(request, 'bookmodule/task4.html', {'books': books})
+        return render(request, 'bookmodule/lab9_2.html', {'books': books})
     else:
         return render(request, 'bookmodule/index.html')
     
@@ -162,7 +159,7 @@ def lab9_3(request):
 def lab9_4(request):
     books = Book.objects.order_by('title')
     if books.exists():
-        return render(request, 'bookmodule/task4.html', {'books': books})
+        return render(request, 'bookmodule/lab9_4.html', {'books': books})
     else:
         return render(request, 'bookmodule/index.html')
     
