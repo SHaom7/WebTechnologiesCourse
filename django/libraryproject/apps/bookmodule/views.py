@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Book
-from apps.usermodule.models import Student, Address
+from apps.usermodule.models import Student, Student2, Card, Course, Department
 from django.db.models import Q, Avg, Count, Max, Sum, Min
 
 
@@ -128,10 +128,45 @@ def task5(request):
         return render(request, 'bookmodule/index.html')
     
 
-
 def task7(request):
     city_stats = Student.objects.values('address__city').annotate(student_count=Count('id')).order_by('-student_count')
     return render(request, 'usermodule/task7.html', {'city_stats': city_stats})
+
+def lab9_1(request):
+    studentNum = Student2.objects.values('department__name').annotate(student_count = Count('id')).order_by('-student_count')
+    if studentNum.exists():
+        return render(request, 'bookmodule/lab9_1.html', {'studentNum': studentNum})
+    else:
+        return render(request, 'bookmodule/index.html')
+    
+
+
+def lab9_2(request):
+    books = Book.objects.order_by('title')
+    if books.exists():
+        return render(request, 'bookmodule/task4.html', {'books': books})
+    else:
+        return render(request, 'bookmodule/index.html')
+    
+
+
+def lab9_3(request):
+    books = Book.objects.order_by('title')
+    if books.exists():
+        return render(request, 'bookmodule/task4.html', {'books': books})
+    else:
+        return render(request, 'bookmodule/index.html')
+    
+
+
+def lab9_4(request):
+    books = Book.objects.order_by('title')
+    if books.exists():
+        return render(request, 'bookmodule/task4.html', {'books': books})
+    else:
+        return render(request, 'bookmodule/index.html')
+    
+
 
 
     
