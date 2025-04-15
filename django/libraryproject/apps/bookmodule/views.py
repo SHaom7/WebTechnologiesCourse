@@ -139,29 +139,34 @@ def lab9_1(request):
 
 
 def lab9_3(request):
-    studentName = Student2.objects.values('department__name').annotate(student_name = Min('id'))
+    oldest_ids = Student2.objects.values('department_id').annotate(min_id=Min('id'))
+
+    studentName = Student2.objects.filter(
+        id__in=[item['min_id'] for item in oldest_ids]
+    ).select_related('department')
+
     if studentName.exists():
         return render(request, 'bookmodule/lab9_3.html', {'studentName': studentName})
     else:
         return render(request, 'bookmodule/index.html')
+
     
 
 
 def lab9_2(request):
-    books = Book.objects.order_by('title')
-    if books.exists():
-        return render(request, 'bookmodule/lab9_2.html', {'books': books})
+    courses = Course.objects.annotate(student_count=Count('student2')).values('title', 'student_count')
+    
+    if courses.exists():
+        return render(request, 'bookmodule/lab9_2.html', {'courses': courses})
     else:
         return render(request, 'bookmodule/index.html')
     
 
 
 def lab9_4(request):
-    books = Book.objects.order_by('title')
-    if books.exists():
-        return render(request, 'bookmodule/lab9_4.html', {'books': books})
-    else:
-        return render(request, 'bookmodule/index.html')
+    departments = Department.objects.annotate(student_count=Count('student2')).filter(student_count__gt=2).order_by('-student_count')
+    return render(request, 'bookmodule/lab9_4.html', {'departments': departments})
+
     
 
 

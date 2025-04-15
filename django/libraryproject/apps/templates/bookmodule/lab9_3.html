@@ -9,7 +9,7 @@
 <h2>Number of Students per Department</h2>
 <ul>
   {% for item in studentName %}
-    <li>{{ item.department__name }}: {{ item.student_name }}</li>
+    <li>{{ item.department.name }}: {{ item.name }}</li>
   {% endfor %}
 </ul>
 {% endblock content %}
