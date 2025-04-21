@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Book List Page {% endblock title %}
+{% block stylesheets %}
+{% endblock stylesheets %}
+{% block content %}
+<h1>{% if book %}Edit{% else %}Add{% endif %} Book</h1>
+<form method="post">
+    {% csrf_token %}
+    <label>Title:</label>
+    <input type="text" name="title" value="{{ book.title|default:'' }}"><br>
+    <label>Author:</label>
+    <input type="text" name="author" value="{{ book.author|default:'' }}"><br>
+    <label>Price:</label>
+    <input type="number" name="price" step="0.01" value="{{ book.price|default:'' }}"><br>
+    <label>Edition:</label>
+    <input type="number" name="edition" value="{{ book.edition|default:'' }}"><br>
+    
+    <input type="submit" value="Save">
+</form>
+{% endblock content %}

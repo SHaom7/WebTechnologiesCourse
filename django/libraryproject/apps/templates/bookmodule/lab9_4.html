@@ -3,14 +3,11 @@
 {% block title %} Book List Page {% endblock title %}
 {% block stylesheets %}
 {% endblock stylesheets %}
- 
 {% block content %}
-
 <h2>Departments with More Than Two Students</h2>
 <ul>
   {% for dept in departments %}
     <li>{{ dept.name }} - {{ dept.student_count }} students</li>
   {% endfor %}
 </ul>
-
 {% endblock content %}

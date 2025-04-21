@@ -130,7 +130,7 @@ def task5(request):
 
 
 def lab9_1(request):
-    studentNum = Student2.objects.values('department__name').annotate(student_count = Count('id')).order_by('-student_count')
+    studentNum = Student2.objects.values('department__name').annotate(student_count = Count('id'))
     if studentNum.exists():
         return render(request, 'bookmodule/lab9_1.html', {'studentNum': studentNum})
     else:
@@ -168,8 +168,25 @@ def lab9_4(request):
     return render(request, 'bookmodule/lab9_4.html', {'departments': departments})
 
     
+def listbooksPt1(request):
+    books = Book.objects.all()
+    return render(request, 'bookmodule/listbooksPt1.html', {'books': books})
 
 
+def addbookPt1(request):
+    if request.method == 'POST':
+        Book.objects.create(
+            title=request.POST['title'],
+            author=request.POST['author'],
+            price=request.POST['price'],
+            edition=request.POST['edition']
+        )
+        return render('bookmodule/listbooksPt1.html')
+    return render(request, 'bookmodule/addbookPt1.html')
 
-    
+def editbookPt1(request, id):
+    return
 
+
+def deletebookPt1(request, id):
+    return
