@@ -1,21 +1,18 @@
 {% extends "layouts/base.html" %}
-{% load static %}
-{% block title %} Book List Page {% endblock title %}
-{% block stylesheets %}
-{% endblock stylesheets %}
+{% block title %}Book List (With Forms){% endblock %}
 
 {% block content %}
-<h1>Books List</h1>
+<h1>Books List (Django Forms)</h1>
 
-<a href="{% url 'books.addbookPt1' %}" style="margin-bottom: 20px; display: inline-block;">Add New Book</a>
+<a href="{% url 'books.addbookPt2' %}" style="margin-bottom: 20px; display: inline-block;">Add New Book</a>
 
-<table border="1" cellpadding="10" cellspacing="0" style="width: 100%; text-align: center; margin-top: 20px;">
+<table border="1" cellpadding="10" cellspacing="0" style="width: 100%; text-align: center;">
     <thead>
         <tr>
             <th>ID</th>
             <th>Title</th>
             <th>Author</th>
-            <th>Price ($)</th>
+            <th>Price</th>
             <th>Edition</th>
             <th>Actions</th>
         </tr>
@@ -29,8 +26,8 @@
             <td>{{ book.price }}</td>
             <td>{{ book.edition }}</td>
             <td>
-                <a href="{% url 'books.editbookPt1' book.id %}">Edit</a> |
-                <a href="{% url 'books.deletebookPt1' book.id %}">Delete</a>
+                <a href="{% url 'books.editbookPt2' book.id %}">Edit</a> |
+                <a href="{% url 'books.deletebookPt2' book.id %}">Delete</a>
             </td>
         </tr>
         {% empty %}
@@ -41,4 +38,4 @@
     </tbody>
 </table>
 
-{% endblock content %}
+{% endblock %}
