@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from apps.usermodule.models import Student, Address, Student3
+from apps.usermodule.models import Student, Address, Student3, Product
 from django.db.models import Q, Avg, Count, Max, Sum, Min
-from .forms import StudentForm, AddressForm, Student3Form
+from .forms import StudentForm, AddressForm, Student3Form, ProductForm
 
 # Create your views here.
 
@@ -40,7 +40,6 @@ def delete_student(request, id):
     student.delete()
     return redirect('users.list_students')
 
-# CRUD for Student3
 
 def list_students3(request):
     students = Student3.objects.all()
@@ -54,7 +53,7 @@ def add_student3(request):
             return redirect('users.list_students3')
     else:
         form = Student3Form()
-    return render(request, 'usermodule/add_edit_student.html', {'form': form})
+    return render(request, 'usermodule/add_edit_student2.html', {'form': form})
 
 def edit_student3(request, id):
     student = get_object_or_404(Student3, id=id)
@@ -65,10 +64,28 @@ def edit_student3(request, id):
             return redirect('users.list_students3')
     else:
         form = Student3Form(instance=student)
-    return render(request, 'usermodule/add_edit_student.html', {'form': form})
+    return render(request, 'usermodule/add_edit_student2.html', {'form': form})
 
 def delete_student3(request, id):
     student = get_object_or_404(Student3, id=id)
     student.delete()
     return redirect('users.list_students3')
 
+def list_products(request):
+    products = Product.objects.all()
+    return render(request, 'usermodule/list_products.html', {'products': products})
+
+def add_product(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('users.list_products')
+    else:
+        form = ProductForm()
+    return render(request, 'usermodule/add_product.html', {'form': form})
+
+def delete_product(request, id):
+    product = get_object_or_404(Product, id=id)
+    product.delete()
+    return redirect('users.list_products') 

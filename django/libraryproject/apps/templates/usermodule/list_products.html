@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+{% block title %}Product List{% endblock %}
+
+{% block content %}
+<h1>Product List</h1>
+
+<a href="{% url 'users.add_product' %}">Add New Product</a>
+
+<ul style="list-style-type: none; padding: 0;">
+    {% for product in products %}
+    <li style="margin-bottom: 30px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+        <strong>{{ product.name }}</strong><br>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" width="150"><br>
+        <a href="{% url 'users.delete_product' product.id %}" style="color: red;">Delete</a>
+    </li>
+    {% empty %}
+    <li>No products found.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

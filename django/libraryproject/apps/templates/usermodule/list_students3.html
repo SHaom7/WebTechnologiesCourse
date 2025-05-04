@@ -3,7 +3,7 @@
 
 {% block content %}
 <h1>Students (Many-to-Many Address)</h1>
-<a href="{% url 'users.add_student' %}">Add New Student</a>
+<a href="{% url 'users.add_student3' %}">Add New Student</a>
 <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; text-align: center;">
     <thead>
         <tr>
@@ -26,8 +26,8 @@
                 {% endfor %}
             </td>
             <td>
-                <a href="{% url 'users.edit_student' student.id %}">Edit</a> |
-                <a href="{% url 'users.delete_student' student.id %}">Delete</a>
+                <a href="{% url 'users.edit_student3' student.id %}">Edit</a> |
+                <a href="{% url 'users.delete_student3' student.id %}">Delete</a>
             </td>
         </tr>
         {% empty %}
