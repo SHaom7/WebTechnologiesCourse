@@ -1,6 +1,7 @@
 from django.urls import path
 from apps.usermodule import views
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import  LogoutView
 
 urlpatterns = [
     path('lab8/task7/', views.task7, name="users.task7"),
@@ -17,6 +18,7 @@ urlpatterns = [
     path('lab11/part3/products/delete/<int:id>/', views.delete_product, name='users.delete_product'),
     path('login/', auth_views.LoginView.as_view(template_name='usermodule/login.html'), name='users.login'),
     path('register/', views.register, name='users.register'),
+    path('logout/', LogoutView.as_view(), name='users.logout')
 
 
 ]
