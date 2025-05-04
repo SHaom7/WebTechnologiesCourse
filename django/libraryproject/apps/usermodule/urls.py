@@ -1,5 +1,6 @@
-from django.urls import path, include
+from django.urls import path
 from apps.usermodule import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('lab8/task7/', views.task7, name="users.task7"),
@@ -14,4 +15,8 @@ urlpatterns = [
     path('lab11/part3/products/', views.list_products, name='users.list_products'),
     path('lab11/part3/products/add/', views.add_product, name='users.add_product'),
     path('lab11/part3/products/delete/<int:id>/', views.delete_product, name='users.delete_product'),
+    path('login/', auth_views.LoginView.as_view(template_name='usermodule/login.html'), name='users.login'),
+    path('register/', views.register, name='users.register'),
+
+
 ]
